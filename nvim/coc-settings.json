@@ -1,0 +1,20 @@
+{  
+    // python  
+    "python.pythonPath": "python",  
+    "python.venvPath": "~/venvs/",
+
+    // jedi  
+    "python.jediPath": "~/venvs/jedi/lib/python3.8/site-packages/",  
+    "python.jediEnabled": true,  
+    "suggest.timeout": 5000,
+
+    //formatting  
+    "python.formatting.provider": "black",  
+    "python.formatting.blackPath": "~/venvs/black/bin/black",
+
+    //linting  
+    "python.linting.pylintEnabled": true,  
+    "python.linting.flake8Enabled": false,  
+    "python.linting.pylintPath": "~/venvs/pylint/bin/pylint"  
+}
+
