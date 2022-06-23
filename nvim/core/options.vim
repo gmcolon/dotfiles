@@ -1,8 +1,8 @@
 set exrc
 " Show line number and relative line number
-set number relativenumber  
+set number relativenumber
 
-set nohlsearch
+" set nohlsearch "Breaks hlslens
 
 set smartindent
 set nu
@@ -70,13 +70,13 @@ set wildmode=list:longest
 set noshowmode
 
 " Fileformats to use for new files
-set fileformats=unix,dos  
+set fileformats=unix,dos
 
 " Ask for confirmation when handling unsaved or read-only files
 set confirm
 
 " Do not use visual and errorbells
-set visualbell noerrorbells  
+set visualbell noerrorbells
 
 " The number of command and search history to keep
 set history=500
