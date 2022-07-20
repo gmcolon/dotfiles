@@ -9,11 +9,13 @@ nvim_tree.setup({
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
   ignore_buffer_on_setup = false,
-  open_on_setup = false,
-  open_on_setup_file = false,
+  open_on_setup = true,
+  open_on_setup_file = true,
   open_on_tab = false,
   sort_by = "name",
-  update_cwd = false,
+  respect_buf_cwd = true,
+  update_cwd = true,
+  auto_close = true,
   view = {
     width = 30,
     height = 30,
@@ -31,6 +33,7 @@ nvim_tree.setup({
     },
   },
   renderer = {
+    highlight_opened_files = 'all',
     indent_markers = {
       enable = false,
       icons = {
@@ -48,8 +51,8 @@ nvim_tree.setup({
     auto_open = true,
   },
   update_focused_file = {
-    enable = false,
-    update_cwd = false,
+    enable = true,
+    update_cwd = true,
     ignore_list = {},
   },
   ignore_ft_on_setup = {},
