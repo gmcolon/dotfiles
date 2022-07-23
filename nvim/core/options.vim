@@ -20,7 +20,6 @@ set termguicolors
 " Minimum lines to keep above and below cursor when scrolling
 set scrolloff=8
 
-set noshowmode
 set colorcolumn=100
 set splitbelow splitright
 set termguicolors " this variable must be enabled for colors to be applied properly
@@ -37,6 +36,7 @@ set wildignore+=*/.git/*,*/.svn/*,*/__pycache__/*,*/build/**
 set wildignore+=*.jpg,*.png,*.jpeg,*.bmp,*.gif,*.tiff,*.svg,*.ico
 set wildignore+=*.pyc,*.pkl
 set wildignore+=*.DS_Store
+set wildignore+=*.tiff
 set wildignore+=*.aux,*.bbl,*.blg,*.brf,*.fls,*.fdb_latexmk,*.synctex.gz,*.xdv
 set wildignorecase  " ignore file and dir name cases in cmd-completion
 

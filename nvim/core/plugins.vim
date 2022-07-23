@@ -10,10 +10,6 @@ Plug 'neovim/nvim-lspconfig'
 "Tresitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 
-" UndoTree
-
-" FugeDiff?
-
 " Nvim-Tree
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -47,6 +43,9 @@ Plug 'Pocco81/AutoSave.nvim'
 " alpha-nvim -- greeter screen
 Plug 'goolord/alpha-nvim'
 
+" Possible key bindings
+Plug 'folke/which-key.nvim'
+
 " vim-markdown -- syntax highlight for markdown
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
@@ -68,13 +67,17 @@ Plug 'glench/vim-jinja2-syntax'
 " tag bar 
 Plug 'preservim/tagbar'
 
+" changes current working directory
+Plug 'airblade/vim-rooter'
 " spotify >.<
-Plug 'KadoBOT/nvim-spotify' 
+"Plug 'KadoBOT/nvim-spotify' 
 
 " Themes
-Plug 'gruvbox-community/gruvbox'
+"Plug 'kaiuri/nvim-juliana'
+"Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
+"Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
-Plug 'sainnhe/everforest'
+"Plug 'sainnhe/everforest'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}

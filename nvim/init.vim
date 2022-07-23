@@ -1,3 +1,6 @@
+" Leader
+let mapleader = "\<Space>"
+
 let s:core_conf_files = [
       \ 'globals.vim',
       \ 'options.vim',
