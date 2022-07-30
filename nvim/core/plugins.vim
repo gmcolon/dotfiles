@@ -61,16 +61,23 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 " ts syntx highlight
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+" For async completion
+Plug 'Shougo/deoplete.nvim'
+" For Denite features
+Plug 'Shougo/denite.nvim'
 " html/jinja syntax highlight
 Plug 'glench/vim-jinja2-syntax'
 
-" tag bar 
+" tag bar
 Plug 'preservim/tagbar'
+
+" Auto format code -- must install formatting programs
+Plug 'vim-autoformat/vim-autoformat'
 
 " changes current working directory
 Plug 'airblade/vim-rooter'
 " spotify >.<
-"Plug 'KadoBOT/nvim-spotify' 
+"Plug 'KadoBOT/nvim-spotify'
 
 " Themes
 "Plug 'kaiuri/nvim-juliana'
@@ -91,12 +98,12 @@ call plug#end()
 """"""""""""""""""""""""""""""wilder.nvim settings""""""""""""""""""""""""""""""
 " Default keys
 call wilder#setup({
-      \ 'modes': [':', '/', '?'],
-      \ 'next_key': '<Tab>',
-      \ 'previous_key': '<S-Tab>',
-      \ 'accept_key': '<Down>',
-      \ 'reject_key': '<Up>',
-      \ })
+            \ 'modes': [':', '/', '?'],
+            \ 'next_key': '<Tab>',
+            \ 'previous_key': '<S-Tab>',
+            \ 'accept_key': '<Down>',
+            \ 'reject_key': '<Up>',
+            \ })
 
 """""""""""""""""""""""""vim-signify settings""""""""""""""""""""""""""""""
 " The VCS to use
@@ -111,3 +118,4 @@ let g:startify_fortune_use_unicode = 1
 
 """"""""""""""""""""""""""""alpha-nvim settings""""""""""""""""""""""""""""
 lua require'alpha'.setup(require'alpha.themes.startify'.config)
+

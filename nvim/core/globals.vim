@@ -1,5 +1,5 @@
 " Set neovim python
-let g:python3_host_prog="~/venvs/neovim/bin/python"
+let g:python3_host_prog="/usr/local/bin/python3"
 
 runtime coc-init.vim
 

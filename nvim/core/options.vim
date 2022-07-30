@@ -20,7 +20,7 @@ set termguicolors
 " Minimum lines to keep above and below cursor when scrolling
 set scrolloff=8
 
-set colorcolumn=100
+set colorcolumn=88
 set splitbelow splitright
 set termguicolors " this variable must be enabled for colors to be applied properly
 
