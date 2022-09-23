@@ -1,21 +1,17 @@
 {
     // python
-    "python.pythonPath": "python",
-    "python.venvPath": "~/venvs/",
-
-    // jedi
-    "python.jediPath": "~/venvs/jedi/lib/python3.8/site-packages/",
-    "python.jediEnabled": true,
-    "suggest.timeout": 5000,
+    //"python.pythonPath": "/opt/homebrew/bin/python3",
+    //"python.venvPath": "",
 
     //formatting
     "python.formatting.provider": "black",
     "python.formatting.blackPath": "~/venvs/black/bin/black",
 
     //linting
-    "python.linting.pylintEnabled": true,
-    "python.linting.flake8Enabled": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
     "python.linting.pylintPath": "~/venvs/pylint/bin/pylint",
+    "python.linting.flake8Path": "/opt/homebrew/bin/flake8",
 
     //pyright
     "pyright.enable": true,

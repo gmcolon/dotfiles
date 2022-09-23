@@ -18,7 +18,7 @@ set ignorecase smartcase
 set termguicolors
 
 " Minimum lines to keep above and below cursor when scrolling
-set scrolloff=8
+set scrolloff=10
 
 set colorcolumn=88
 set splitbelow splitright
@@ -54,6 +54,9 @@ set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " number of spaces to use for autoindent
 set expandtab       " expand tab to spaces so that tabs are spaces
+
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype javascript,typescript,javascriptreact setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " Set matching pairs of characters and highlight matching brackets
 set matchpairs+=<:>,「:」,『:』,【:】,“:”,‘:’,《:》
@@ -149,3 +152,8 @@ set diffopt+=filler  " show filler for deleted lines
 set diffopt+=closeoff  " turn off diff when one file window is closed
 set diffopt+=context:3  " context for diff
 set diffopt+=internal,indent-heuristic,algorithm:histogram
+
+set foldlevel=20
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldcolumn=3

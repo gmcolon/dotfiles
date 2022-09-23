@@ -5,10 +5,11 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Neovim LSP
-Plug 'neovim/nvim-lspconfig'
+" Plug 'neovim/nvim-lspconfig'
 
 "Tresitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 
 " Nvim-Tree
 Plug 'kyazdani42/nvim-tree.lua'
@@ -18,9 +19,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
 Plug 'kyazdani42/nvim-web-devicons'
-
-" vim-bufferline
-Plug 'bling/vim-bufferline'
 
 " vim-signify
 Plug 'mhinz/vim-signify'
@@ -83,15 +81,17 @@ Plug 'airblade/vim-rooter'
 "Plug 'kaiuri/nvim-juliana'
 "Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 "Plug 'gruvbox-community/gruvbox'
-Plug 'sainnhe/gruvbox-material'
+"Plug 'sainnhe/gruvbox-material'
+Plug 'arcticicestudio/nord-vim'
 "Plug 'sainnhe/everforest'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+
 
 call plug#end()
 
@@ -118,4 +118,3 @@ let g:startify_fortune_use_unicode = 1
 
 """"""""""""""""""""""""""""alpha-nvim settings""""""""""""""""""""""""""""
 lua require'alpha'.setup(require'alpha.themes.startify'.config)
-
