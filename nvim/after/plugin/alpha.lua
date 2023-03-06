@@ -1,4 +1,5 @@
-lua << EOF
+require'alpha'.setup(require'alpha.themes.startify'.config)
+
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
@@ -41,5 +42,3 @@ end
 dashboard.section.footer.val = footer()
 
 alpha.setup(dashboard.opts)
-
-EOF

@@ -1,5 +1,3 @@
-lua << EOF
-
 local nvim_tree = require("nvim-tree")
 
 nvim_tree.setup({
@@ -18,7 +16,7 @@ update_cwd = true,
 -- auto_close = true,
 view = {
     width = 30,
-    height = 30,
+    --height = 30,
     hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,
@@ -117,10 +115,3 @@ log = {
         },
     },
 })
-
--- vim.keymap.set('n', '<space>s', function()
---  return require('nvim-tree').toggle(false, true)
---end,
---{ noremap = true, silent = true, desc = "toggle nvim-tree"})
-
-EOF

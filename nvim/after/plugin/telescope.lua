@@ -1,10 +1,12 @@
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+local builtin = require('telescope.builtin')
+local silentnoremap = {noremap = true, silent = true}
 
-lua << EOF
+vim.keymap.set('n', '<leader>ff', builtin.find_files, silentnoremap )
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, silentnoremap)
+vim.keymap.set('n', '<leader>fb', builtin.buffers, silentnoremap)
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, silentnoremap)
+vim.keymap.set("n", "<Leader>fr", ":Telescope oldfiles<CR>", silentnoremap)
+
 require('telescope').setup{
   defaults = {
     -- Default configuration for telescope goes here:
@@ -36,4 +38,5 @@ require('telescope').setup{
     -- please take a look at the readme of the extension you want to configure
   }
 }
-EOF
+
+require("telescope").load_extension("noice")
