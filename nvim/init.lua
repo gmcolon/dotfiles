@@ -2,6 +2,9 @@ require("colors")
 require("set")
 require("options")
 
+vim.cmd("filetype plugin on")
+
+--
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -195,12 +198,16 @@ require("lazy").setup({
 		opts = {
 			update_focused_file = {
 				enable = true,
+        update_root = false,
+        update_cwd = true,
+        ignore_list = {},
 			},
 		},
 		config = function()
 			require("nvim-tree").setup({
 				update_focused_file = {
 					enable = true,
+          update_cwd = true,
 				},
 			})
 		end,
@@ -266,6 +273,7 @@ require("lazy").setup({
 		event = "InsertEnter",
 		opts = {}, -- this is equalent to setup({}) function
 	},
+  {'norcalli/nvim-colorizer.lua'},
 	{
 		"Pocco81/auto-save.nvim",
 		opts = {
@@ -306,6 +314,13 @@ require("lazy").setup({
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
 	},
+  {"shortcuts/no-neck-pain.nvim", version = "*",
+    opts = {
+      mappings = {
+        enabled = true
+      },
+    }
+  },
 	-- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
 	--       These are some example plugins that I've included in the kickstart repository.
 	--       Uncomment any of the lines below to enable them.
@@ -326,6 +341,9 @@ require("plugins.telescope")
 require("plugins.alpha")
 --require("config.formatter")
 require("plugins.trouble")
+require("plugins.noneckpain")
+require("colorizer")
+
 --
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -431,9 +449,17 @@ local on_attach = function(_, bufnr)
 	end
 
 	nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-	nmap("<leader>ca", function()
-		vim.lsp.buf.code_action({ context = { only = { "quickfix", "refactor", "source" } } })
-	end, "[C]ode [A]ction")
+
+-- Code actions
+  if vim.lsp.buf.range_code_action then
+   nmap("<leader>ca", vim.lsp.buf.range_code_action,  "Range [C]ode [A]ction.")
+  else
+   nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction.")
+  end
+
+--	nmap("<leader>ca", function()
+--		vim.lsp.buf.code_action({ context = { only = { "quickfix", "refactor", "source" } } })
+--	end, "[C]ode [A]ction")
 
 	-- See `:help K` for why this keymap
 	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -495,9 +521,13 @@ require("mason-lspconfig").setup()
 local servers = {
 	-- clangd = {},
 	-- gopls = {},
-	-- pyright = {},
+	pyright = {
+    settings = {
+      python = { analysis = { include = {'/home/ubuntu/git/abacode-infrastructure/resources/LambdaLayer/*'} } }
+    },
+  },
 	-- rust_analyzer = {},
-	-- tsserver = {},
+	tsserver = {},
 	-- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
 	lua_ls = {

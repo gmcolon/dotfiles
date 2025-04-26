@@ -1,5 +1,24 @@
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
+-- Reverse filename and highlight 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "TelescopeResults",
+	callback = function(ctx)
+		vim.api.nvim_buf_call(ctx.buf, function()
+		vim.fn.matchadd("TelescopeParent", "\t\t.*$")
+		vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
+	end)
+end,
+})
+
+local function filenameFirst(_, path)
+	local tail = vim.fs.basename(path)
+	local parent = vim.fs.dirname(path)
+	if parent == "." then return tail end
+	return string.format("%s\t\t%s", tail, parent)
+end
+
+
 local actions = require("telescope.actions")
 require("telescope").setup({
 	defaults = {
@@ -18,6 +37,11 @@ require("telescope").setup({
 				["<leader>x"] = actions.select_horizontal,
 			},
 		},
+	},
+	pickers = {
+		find_files = {
+			path_display = filenameFirst,
+			}
 	},
 })
 
@@ -60,6 +84,7 @@ end
 
 vim.api.nvim_create_user_command("LiveGrepGitRoot", live_grep_git_root, {})
 
+
 --vim.keymap.set('n', '<c-d>',  require('telescope.actions').delete_buffer, { desc = '[c-d] Close Buffer'})
 
 -- See `:help telescope.builtin`
@@ -79,6 +104,7 @@ local function telescope_live_grep_open_files()
 		prompt_title = "Live Grep in Open Files",
 	})
 end
+
 vim.keymap.set("n", "<leader>s/", telescope_live_grep_open_files, { desc = "[S]earch [/] in Open Files" })
 vim.keymap.set("n", "<leader>ss", require("telescope.builtin").builtin, { desc = "[S]earch [S]elect Telescope" })
 vim.keymap.set("n", "<leader><leader>", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
@@ -89,3 +115,5 @@ vim.keymap.set("n", "<leader>fG", require("telescope.builtin").live_grep, { desc
 vim.keymap.set("n", "<leader>fg", ":LiveGrepGitRoot<cr>", { desc = "[F]ind by [G]rep on Git Root" })
 vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { desc = "[F]ind [D]iagnostics" })
 vim.keymap.set("n", "<leader>fr", require("telescope.builtin").resume, { desc = "[F]ind [R]esume" })
+
+
