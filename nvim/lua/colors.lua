@@ -1,2 +1,0 @@
--- For light version.
---vim.opt.background = "light"
