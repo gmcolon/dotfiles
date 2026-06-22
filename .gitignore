@@ -1,0 +1,16 @@
+# tmux plugins installed by tpm — keep only the manager itself
+tmux/plugins/*
+!tmux/plugins/tpm
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+
+# nvim plugin/state data (written at runtime, lives outside config dir anyway)
+nvim/.cache/
